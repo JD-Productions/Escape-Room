@@ -1,19 +1,19 @@
 i = [
-	'inspect',
-	'search',
-	'x',
-	'examime'
+    'inspect',
+    'search',
+    'x',
+    'examime'
 ]
 t = [
-	't',
-	'ta',
-	'tak',
-	'take'
+    't',
+    'ta',
+    'tak',
+    'take'
 ]
 u = [
-	'u',
-	'unlock',
-	'unloc'
+    'u',
+    'unlock',
+    'unloc'
 ]
 v = [
     'inventory',
@@ -27,8 +27,8 @@ v = [
 ]
 
 keys = {
-	'i': i,
-	't': t,
-	'u': u,
+    'i': i,
+    't': t,
+    'u': u,
     'v': v
 }
