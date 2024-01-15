@@ -1,4 +1,5 @@
 import json, os
+from datetime import datetime as date
 
 def intinput(question=""):
     answer = input(question)
@@ -8,27 +9,34 @@ def intinput(question=""):
     except:
         pass
 
-def get_users():
-    path = os.getcwd() + "/Users"
-    users = [json_data for json_data in os.listdir(path) if json_data.endswith('.json')]
-    for user in users:
-        num = users.index(user)
-        users[num] = user.split(".")[0] 
-    return users
+def get_time():
+    """get_time() :
+    gets the current day and time and returns it as a string"""
+    today = str(date.now()).split('.')[0]
+    today = today.replace(" ", "-")
+    return today
 
-def add_user(user):
-    users = get_users()
-    users.append(user)
+def get_saves():
+    path = os.getcwd() + "/Saves"
+    saves = [json_data for json_data in os.listdir(path) if json_data.endswith('.json')]
+    for save in list(enumerate(saves)):
+        num = save[0]
+        saves[num] = save[1]
+    return saves
 
-def _reset_user(user):
+def add_save(save):
+    saves = get_saves()
+    saves.append(save)
+
+def _reset_save(save):
     setup = {
-    "money": 5,
-    "inventory": [],
-    "job": None
+    "room": 0,
+    "inventory": []
     }
-    with open(f"Users/{user}.json", "w") as file:
+    fname = get_time()
+    with open(f"Saves/{save}.json", "w") as file:
         json.dump(setup, file)
-        print(f"USER {user.upper()} HAS BEEN RESET")
+        print(f"USER {save.upper()} HAS BEEN RESET")
 
 def dialogue(name=""):
     name += ".txt"
@@ -40,16 +48,15 @@ def dialogue(name=""):
         print(file)
 
 class Db:
-    def __init__(self, user):
-        self.user = user
-        if user not in get_users():
-            add_user(user)
+    def __init__(self, save):
+        self.save = save
+        if save not in get_saves():
+            add_save(save)
         self.setup = {
-        "money": 5,
-        "inventory": {},
-        "job": None
+        "room": 0,
+        "inventory": []
         }
-        self.path = f"Users/{self.user}.json"
+        self.path = f"Saves/{self.save}.json"
         self.create_save_file()
 
     def create_save_file(self, overwrite=False):
@@ -79,9 +86,10 @@ class Db:
         else:
             save["inventory"][item[0]] = item[1]
         print(f"add {save}")
-        self.save_file(save) 
+        self.save_file(save)
+    
     def remove_item(self, item):
-        with open(f"{self.user}.json") as file:
+        with open(f"{self.save}.json") as file:
             save = json.load(file)
             try:
                 save['inventory'].remove(item)
@@ -89,23 +97,22 @@ class Db:
             except:
                 raise
 
-def choose_user():
-    users = get_users()
+def choose_save():
+    saves = get_saves()
     while True:
-        print("Type the number for the user")
+        print("Type the number for the save")
         i = 1
-        print("[0] New User")
-        for user in users:
-            print(f"[{i}] {user}")
+        for save in list(enumerate(saves)):
+            print(f"[{i}] {save}")
             i += 1
         i -= 1
-        user = intinput()
-        if user == 0:
+        save = intinput()
+        if save == 0:
             name = input("User Name: ").strip().title()
             Db(name)
             return name
-        if type(user) == int:
-            if user <= i:
-                user = users[user-1]
+        if type(save) == int:
+            if save <= i:
+                save = saves[save-1]
                 break
-    return user
+    return save
