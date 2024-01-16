@@ -99,13 +99,12 @@ class Db:
         self.save_file(save)
     
     def remove_item(self, item):
-        with open(f"{self.save}.json") as file:
-            save = json.load(file)
-            try:
-                save['inventory'].remove(item)
-                self.save_file(save)
-            except:
-                raise
+        save = self.get_file()
+        try:
+            save['inventory'].remove(item)
+            self.save_file(save)
+        except:
+            raise
 
 button_name = ""
 
