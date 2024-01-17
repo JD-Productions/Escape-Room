@@ -1,0 +1,22 @@
+{
+"room-num":1,
+"intro":"you are in a museum like room with 3 statues all of them have plaques on the base and a locked door on the other side of the room",
+"item_unlockables":{
+    "table":"magnifying glass"
+},
+"items":{
+    "magnifying glass":{
+        "statue 1":"you use the magnifying glass to see that it has the number 1 on it",
+        "statue 2":"you use the magnifying glass to see that it has the number 4 on it",
+        "statue 3":"you use the magnifying glass to see that it has the number 3 on it"
+    },
+},
+"interactions":{
+    "statue 1":"the first plaque reads '1993 Ales Johansen' ",
+    "statue 2":"the second plaque reads '1925 hunter biden'",
+    "statue 3":"the third plaque reads '1999' Nancy Nathan ",
+    "table":"it has a magnifying glass on it",
+    "door":"the door has a keycode on it it requires 3 numbers"
+},
+"code":159
+}
