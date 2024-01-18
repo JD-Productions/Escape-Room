@@ -1,5 +1,5 @@
 {
-"intro":"you are in a museum like room with 3 statues and a locked door on the other side of the room and a table next to you",
+"intro":"you are in a museum like room with 3 statues all of them have plaques on the base and a locked door on the other side of the room",
 "item_unlockables":{
     "table":"magnifying glass"
 },
@@ -11,11 +11,11 @@
     },
 },
 "interactions":{
-    "statue 1":"it is a statue of a person but you don't know how",
-    "statue 2":"it is a statue of a person but you don't know how",
-    "statue 3":"it is a statue of a person but you don't know how",
+    "statue 1":"the first plaque reads '1993 Ales Johansen'",
+    "statue 2":"the second plaque reads '1925 hunter biden'",
+    "statue 3":"the third plaque reads '1999 Nancy Nathan'",
     "table":"it has a magnifying glass on it",
     "door":"the door has a keycode on it it requires 3 numbers"
 },
-"code":143
+"code":159
 }
