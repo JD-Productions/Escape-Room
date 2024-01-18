@@ -16,7 +16,7 @@ def add_save(save):
 
 def _reset_save(save):
     setup = {
-    "room": 0,
+    "room": 1,
     "inventory": []
     }
     with open(f"save.json", "w") as file:
@@ -48,7 +48,7 @@ class Db:
         self.path = "save.json"
         new = is_new_player()
         self.setup = {
-        "room": 0,
+        "room": 1,
         "inventory": []
         }
         if new:
@@ -69,6 +69,11 @@ class Db:
         with open(self.path, "r") as file:
             save = json.load(file)
             return save
+    
+    def room_number(self):
+        save = self.get_file()
+        room = save['room']
+        return room
     
     def save_file(self, save):
         with open(self.path, "w") as f:
