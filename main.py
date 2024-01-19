@@ -79,7 +79,7 @@ def play(window):
     inspect.pack(pady=30)
     unlock = Button("UNLOCK")
     unlock.pack()
-    inventory = Button("UNVENTORY")
+    inventory = Button("INVENTORY")
     inventory.pack(pady=30)
     text['text'] = room['intro']
     
