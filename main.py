@@ -13,19 +13,45 @@ def clicked(event):
     global window
     global entry
     global text
+    global room
+    global save
     widget = event.widget
     if str(widget) == ".!button4":
-        e = entry.get()
+        e = entry.get().lower().strip()
         print(e)
+        entry.delete(0, tk.END)
+        if e in room['unlockables'].keys() and room['unlockables'][e][0] not in save.get_file()['inventory']:
+            for item in room['unlockables'][e]:
+                data = room['unlocks'][item]
+                save.add_item(item)
+                for i in data:
+                    room['interactions'][i] = data[i]
+            room['unlockables'].pop(e)
         try:
             a = room['interactions'][e]
             text['text'] = a
         except:
-            pass
+            print(e)
+            print(f"Error for \"{e}\"")
     elif str(widget) == ".!button5":
-        pass
+        e = entry.get().lower().strip()
+        if e == 'door':
+            code = room['code']
+            text['text'] = "Enter the code:"
+        else:
+            code = room['code']
+            try:
+                if int(e) == code:
+                    text['text'] = "You did it! You unlocked the door! You open the door to find... yet another room."
+                    save.change_room()
+                    room = get_room(save.room_number()+1)
+                elif int(e) != code:
+                    text['text'] = "Incorrect Code Try again."
+            except:
+                pass
     elif str(widget) == ".!button6":
-        pass
+        inv = save.get_file()['inventory']
+        text['text'] = inv
 
 
 def Button(text):
@@ -40,6 +66,7 @@ def play(window):
     global entry
     global text
     global room
+    global save
     length = window.winfo_screenwidth()
     save = db.Db()
     room_num = save.room_number()

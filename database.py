@@ -70,6 +70,11 @@ class Db:
             save = json.load(file)
             return save
     
+    def change_room(self):
+        save = self.get_file()
+        save['room'] += 1
+        self.save_file(save)
+    
     def room_number(self):
         save = self.get_file()
         room = save['room']
@@ -81,11 +86,8 @@ class Db:
     
     def add_item(self, item):
         save = self.get_file()
-        if save["inventory"].get(item[0]):
-             save["inventory"][item[0]] += item[1]
-        else:
-            save["inventory"][item[0]] = item[1]
-        print(f"add {save}")
+        save["inventory"].append(item)
+        print(f"added {item} to inventory")
         self.save_file(save)
     
     def remove_item(self, item):
