@@ -1,6 +1,7 @@
 import database as db
 import tkinter as tk
 from room import get_room
+from time import sleep
 
 def hover(event):
     """Called when mouse hovers over a button"""
@@ -46,20 +47,24 @@ def clicked(event):
             text['text'] = "Enter the code:"
         else:
             try:
+                e = int(e)
+                integer = True
+            except:
+                integer = False
+            if integer:
                 # This try is in case of e not being an intiger
                 if int(e) == code:
                     save.change_room()
-                    print("hello")
                     if int(save.room_number()) < 5: # TODO: If we add more than 5 rooms, change this number.
                         text['text'] = "You did it! You unlocked the door! You open the door to find... yet another room."
                         room = get_room(save.room_number()+1)
+                        sleep(5)
+                        text['text'] = room['intro']
                     else:
                         text['text'] = "You did it! You unlocked the door! You open the door to find... yet another room..............................\nTHE END."
                         # TODO: CUTSCENE. (NOT IN DEMO)
                 elif int(e) != code:
                     text['text'] = "Incorrect Code Try again."
-            except:
-                pass
     elif str(widget) == ".!button6":
         inv = "\n,".join(save.get_file()['inventory'])
         text['text'] = inv
