@@ -6,10 +6,10 @@ import main
 
 image1 = Image.open("media/splash_screen.png")
 
-new = database.is_new_player()
+new = database.is_new_player() # Returns a bool
 save = database.Db()
 
-window = tk.Tk()
+window = tk.Tk() # The tk window
 window.title("Escape Room")
 window.config(bg="black")
 width = window.winfo_screenwidth()
@@ -51,16 +51,20 @@ def intro():
 buttons = []
 
 def Button(text):
+    """Creates a tk.Button object and returns it."""
     button = tk.Button(text=text, font="terminal 30", bg="black", fg="#39FF14")
     return button
 
 def hover(event):
+    """Called when the mouse hovers over the button"""
     event.widget.config(bg="#39FF14", fg="black")
 
 def normal(event):
+    """Called when the mouse leaves the button's space"""
     event.widget.config(bg="black", fg="#39FF14")
 
 def clicked(event):
+    """Called when button is clicked"""
     global buttons
     global window
     widget = event.widget
@@ -77,6 +81,7 @@ def clicked(event):
         #main.credit()
 
 def title_screen():
+    """Sets up and shows the title screen"""
     global buttons
     global title
     title = tk.Label(text="Escape Room", font="terminal 50", bg="black", fg="#39FF14")
@@ -96,6 +101,6 @@ def title_screen():
         button.bind("<Leave>", normal)
     
 
-window.after(5000, splash_screen)
-window.after(5001, title_screen)
-window.mainloop()
+window.after(5000, splash_screen) # Waits 5,000 milliseconds (5 seconds) then calls splash_screen
+window.after(5001, title_screen) # Waits 5,001 milliseconds then calls title_screen
+window.mainloop() # Starts a loop to check for events
