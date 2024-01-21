@@ -84,7 +84,7 @@ def play(window):
     global text
     global room
     global save
-    length = window.winfo_screenwidth()
+    length = window.winfo_width()
     save = db.Db()
     room_num = save.room_number()
     room = get_room(room_num)
