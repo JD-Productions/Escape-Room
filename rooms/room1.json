@@ -1,1 +1,17 @@
-{"intro": "You are in a museum like room with 3 statues and a locked door on the other side. A table stands next to you.", "unlockables": {"table": ["magnifying glass"]}, "interactions": {"table": "The table has a magnifying glass on it.", "door": "The door has a keycode on it it requires 3 numbers", "statues": "You look at each statue. You have no idea who they are."}, "unlocks": {"magnifying glass": {"statues": "You look at the statues with the magnifying glass and notice a nuumber on each one. Statue 1 has a number 1 on it, statue 2 has a 4 on it, and statue 3, a 3."}}, "code": 143}
+{
+"intro": "You are in a museum like room with 3 statues and a locked door on the other side. A table stands next to you.", 
+"unlockables": {
+    "table": ["magnifying glass"]
+},
+"interactions": {
+    "table": "The table has a magnifying glass on it.",
+    "door": "The door has a keycode on it it requires 3 numbers",
+    "statues": "You look at each statue. You have no idea who they are."
+},
+"unlocks": {
+    "magnifying glass": {
+        "statues": "You look at the statues with the magnifying glass and notice a number on each one. Statue 1 has a number 1 on it, statue 2 has a 4 on it, and statue 3, a 3."
+    }
+}, 
+"code": 143
+}

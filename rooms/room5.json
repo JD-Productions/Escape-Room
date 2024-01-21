@@ -8,7 +8,7 @@
         "statue 1":"you use the magnifying glass to see that it has the number 1 on it",
         "statue 2":"you use the magnifying glass to see that it has the number 4 on it",
         "statue 3":"you use the magnifying glass to see that it has the number 3 on it"
-    },
+    }
 },
 "interactions":{
     "statue 1":"the first plaque reads '1993 Ales Johansen'",

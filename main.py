@@ -3,15 +3,15 @@ import tkinter as tk
 from room import get_room
 
 def hover(event):
-    """Called when mouse hovers over a button"""
+    # Called when mouse hovers over a button
     event.widget.config(bg="#39FF14", fg="black")
 
 def normal(event):
-    """Called when mouse leaves button's space"""
+    # Called when mouse leaves button's space
     event.widget.config(bg="black", fg="#39FF14")
 
 def clicked(event):
-    """Called when mouse clicks on button"""
+    #  Called when mouse clicks on button
     global buttons
     global window
     global entry
