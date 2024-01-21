@@ -1,0 +1,17 @@
+{
+    "intro": "You find yourself in a dark room. Looks like there are some paintings on the walls and a glass case in the center of the room.",
+    "unlockables": {"glass case": ["flashlight"], "paintings": ["batteries"], "door": ["door"]},
+    "interactions": {"paintings": "You look at the paintings. Everything seems normal here!",
+                     "glass case": "You look at the glass case. There is some object on top of it."},
+    "unlocks": {"flashlight": {
+        "paintings": "You look again at the paintings. You now notice a button on the corner. You press it, and the painting moves to the side, revealing a little box. Inside the box are two small batteries. You put them inside the flashlight. You look around and notice a door in the back of the room."
+        },
+    "batteries": {
+        "door": "Using the flashlight, you guide around the case and paintings and go to the door. You notice the door requires another 3 digit code",
+        "glass case": "You look at the glass case with the flashlight, but now you see a piece of paper on it. You pick it up and read it. It has some kind of symbols on it. It says, \"II VI IX\"."
+        },
+    "door": {
+        "door": "The door requires a 3 digit code. Maybe those symbols could be the answer..."
+        }},
+    "code": 269
+    }
