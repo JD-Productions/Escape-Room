@@ -2,6 +2,7 @@ import database as db
 import tkinter as tk
 from room import get_room
 from time import sleep
+import os
 
 def hover(event):
     # Called when mouse hovers over a button
@@ -55,7 +56,7 @@ def clicked(event):
                 # This try is in case of e not being an intiger
                 if int(e) == code:
                     save.change_room()
-                    if int(save.room_number()) < 5: # TODO: If we add more than 5 rooms, change this number.
+                    if int(save.room_number()) <= len(os.listdir("rooms")):
                         text['text'] = "You did it! You unlocked the door! You open the door to find... yet another room."
                         room = get_room(save.room_number()+1)
                         sleep(5)
